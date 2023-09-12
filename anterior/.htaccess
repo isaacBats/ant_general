@@ -1,0 +1,8 @@
+RewriteEngine on
+
+Options -Indexes
+
+RewriteCond %{HTTP_HOST} ^generalforwarding\.com\.mx$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.generalforwarding\.com\.mx$
+RewriteRule ^/?$ "http\:\/\/www\.general\.com\.mx" [R=301,L]
+

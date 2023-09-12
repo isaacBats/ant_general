@@ -1,0 +1,38 @@
+# folders
+.well-known/
+.well-known./
+__MACOSX/
+#demo/
+#bp-activity-autoloader/
+#bp-directory-integration/
+#bp-force-profile-photo/
+#bp-member-type-generator/
+#buddypress/
+#buddypress-activity-plus/
+#buddypress-activity-privacy/
+#buddypress-docs/
+#buddypress-group-documents/
+#buddypress-like/
+#buddypress-media/
+#buddystream/
+#clean-login/
+#contact-form-7/
+#custom-dashboard-widgets/
+Descargas/
+#duplicator/
+#google-maps-gpx-viewer/
+#hashbuddy/
+#jgc-content-for-registered-users/
+#login-page-styler/
+#login-with-ajax/
+
+
+# files
+docker-compose.yml
+
+
+# compressed files
+application.zip
+full_package.zip
+presentacion.zip
+Ultimate_VC_Addons.zip

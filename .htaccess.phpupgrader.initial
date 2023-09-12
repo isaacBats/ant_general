@@ -1,0 +1,21 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|img|css|js|assets|.well-known/pki-validation|assetsdm|presentacion|Descargas|reportes|reporteschoferes|firmas|formulario|documentos|siag|downloads|leads|robots\.txt)
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+
+RewriteEngine On
+    RewriteCond %{HTTPS} !on
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+RewriteCond %{HTTP_HOST} ^generalexpress\.com\.mx$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.generalexpress\.com\.mx$
+RewriteRule ^/?$ "http\:\/\/www\.general\.com\.mx" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^generalforwarding\.com\.mx$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.generalforwarding\.com\.mx$
+RewriteRule ^/?$ "http\:\/\/www\.general\.com\.mx\/" [R=301,L]
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} leads.general.com.mx [NC]
+RewriteRule ^(.*)$ http://www.general.com.mx/leads/$1 [L,NC,QSA]
+
