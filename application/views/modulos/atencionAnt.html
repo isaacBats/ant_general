@@ -1,0 +1,88 @@
+<script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&amp;render=explicit"></script>
+<div class="container-fluid">
+    <a name="telefono"></a>
+    <div class="row">
+        <div class="col-md-8">
+            <div id="imgText"><img src="{DIR}img/contenidos/{IMAGEN}" width="100%" alt="{NOMBRE_IMAGEN}" /></div>
+        </div>
+        <div class="col-md-4 tac pt60"><img src="{DIR}img/contenidos/{ICONO_TEXTO}" alt="{TITULO}" />
+            <div class="fcazul fs20 pt10">+52 477 112 2495 (Hola)</div>
+            <br><br>
+            <div class="fcazul fs30">{TITULO}</div>
+            <form method="post" action="{DIR}{URLSEND}" name="frmAtencion1" id="frmAtencion1"><br/><input type="number" name="telefono" placeholder="{PHTEL}" required="required" class="caja2 mt15 mb15" />
+                <div class="tac">
+                    <div id="frmTel" data-sitekey="6LcHrpUUAAAAAFvFNanBTdCWRyCbTkXx4JAN1Qvu" class="g-recaptcha"></div>
+                </div><input type="button" onclick="sendAtencion1();" value="{SEND}" style="border:none; margin-left:20px" class="btnVerMas" /></form>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bgazul2">
+    <a name="directorio"></a>
+    <div class="container">
+        <div class="row pt80 pb40">
+            <div class="col-md-4 col-xs-12 tac"><img src="{DIR}img/contenidos/{ICONO1}" alt="General - {LOC1}" />
+                <div class="fs16 fw4 fcblanco fw3 pt30">{LOC1}</div>
+                <div class="fs16 fcblanco fw3">{TEL1}<br>{CORR1}</div>
+            </div>
+            <div class="col-md-4 col-xs-12 tac">
+                <div class="visible-xs visible-sm p30"></div><img src="{DIR}img/contenidos/{ICONO2}" alt="General - {LOC2}" />
+                <div class="fs16 fw4 fcblanco fw3 pt30">{LOC2}</div>
+                <div class="fs16 fcblanco fw3">{TEL2}<br>{CORR2}</div>
+            </div>
+            <div class="col-md-4 col-xs-12 tac">
+                <div class="visible-xs visible-sm p30"></div><img src="{DIR}img/contenidos/{ICONO3}" alt="General - {LOC3}" />
+                <div class="fs16 fw4 fcblanco fw3 pt30">{LOC3}</div>
+                <div class="fs16 fcblanco fw3">{TEL3}<br>{CORR3}</div>
+            </div>
+        </div>
+        <div class="row pt40 pb80">
+            <div class="col-md-2 tac visible-md visible-lg">
+                <div class="fs16 fw4 fcblanco fw3 pt30">&nbsp;</div>
+            </div>
+            <div class="col-md-4 col-xs-12 tac"><img src="{DIR}img/contenidos/{ICONO4}" alt="General - {LOC4}" />
+                <div class="fs16 fw4 fcblanco fw3 pt30">{LOC4}</div>
+                <div class="fs16 fcblanco fw3">{TEL4}<br>{CORR4}</div>
+            </div>
+            <div class="col-md-4 col-xs-12 tac">
+                <div class="visible-xs visible-sm p30"></div><img src="{DIR}img/contenidos/{ICONO5}" alt="General - {LOC5}" />
+                <div class="fs16 fw4 fcblanco fw3 pt30">{LOC5}</div>
+                <div class="fs16 fcblanco fw3">{TEL5}<br>{CORR5}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="background:url('{DIR}img/gris.png')" class="container-fluid">
+    <a name="correo"></a>
+    <div class="container">
+        <div class="row pt30 pb30">
+            <div class="col-md-2 tac"><img src="{DIR}img/contenidos/icoSobre.png" alt="General sobre" /></div>
+            <div class="col-md-8 tac">
+                <div class="fs22 fcblanco pb10">{CAJA}</div>
+                <form method="post" action="{DIR}{URLSEND}" name="frmAtencion2" id="frmAtencion2"><input type="email" name="email" required="required" placeholder="{PHEMAIL}" class="caja1" /><input type="button" onclick="sendAtencion2();" value="{SEND}" style="border:none; margin-left:20px" class="btnVerMas" />
+                    <div class="clear"><br/></div>
+                    <div class="tac">
+                        <div id="frmMail" data-sitekey="6LcHrpUUAAAAAFvFNanBTdCWRyCbTkXx4JAN1Qvu" class="g-recaptcha"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 tac pt10 pb10 visible-md visible-lg">
+            <div class="fs14 fcgris">{LEYENDA}</div>
+        </div>
+        <div class="col-xs-8 col-xs-offset-2 tac pt10 pb10 visible-sm visible-xs">
+            <div class="fs14 fcgris">{LEYENDA}</div>
+        </div>
+    </div>
+</div>
+<script src="{DIR}js/sendAtencion.js"></script>
+<script src="{DIR}js/sweet-alert/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{DIR}js/sweet-alert/sweet-alert.css" />
+<script>
+    {
+        SCRIPT
+    }
+</script>

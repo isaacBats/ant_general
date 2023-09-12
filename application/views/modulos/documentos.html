@@ -1,0 +1,33 @@
+<div class="divisorAlex"></div><div class="container"><div class="row pt80 pb100"><div class="col-md-3"></div><div data-wow-duration="1s" class="col-md-3 tac wow fadeInUp"><img src="{DIR}img/contenidos/{IMG1}" alt="{TITULO1}"/><div class="fcgris fw3"><div class="fs18 pt20 pb20">{TITULO1}</div><div style="width:80%;margin: 0 auto" class="fs16 tac pb30">{PARENTESIS1}</div></div><a href="{DIR}img/contenidos/{DOC1}" target="_blank"><div class="btnCotizar">{DESCARGAR}</div></a><div class="visible-xs visible-sm p40"></div></div><div data-wow-duration="1s" class="col-md-3 tac wow fadeInUp"><img src="{DIR}img/contenidos/{IMG2}" alt="{TITULO2}"/><div class="fcgris fw3"><div class="fs18 pt20 pb20">{TITULO2}</div><div style="width:80%;margin: 0 auto" class="fs16 tac pb30">{PARENTESIS2}</div></div><a href="{DIR}img/contenidos/{DOC2}" target="_blank"><div class="btnCotizar">{DESCARGAR}</div></a></div></div></div>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="{DIR}js/fancy/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="{DIR}js/fancy/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox({
+        		height		: '620px'
+        	});
+        $(".fancybox").click();
+	});
+
+</script>
+<a class="fancybox" data-fancybox-type="iframe" href="https://general.com.mx/img/contenidos/form-documentos.html">&nbsp;</a>
+<!--
+<div style="display:none;">
+    <div style="width:auto;height:auto;overflow: auto;position:relative;">
+        
+    </div>
+</div>
+	$(document).load(function() {
+        $(".fancybox").click();
+	});
+        		maxWidth	: 800,
+        		maxHeight	: 600,
+        		fitToView	: false,
+        		width		: '70%',
+        		autoSize	: false,
+        		closeClick	: false,
+        		openEffect	: 'none',
+        		closeEffect	: 'none'
+-->
