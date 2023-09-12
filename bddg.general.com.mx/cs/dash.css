@@ -1,0 +1,40 @@
+body{
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: #111B54;
+}
+
+.avatar{
+    max-width: 45px;
+}
+
+#sidebar-container{
+    min-height: 100vh;
+}
+
+#sidebar-container .logo{
+    padding: .875rem 1.25rem;
+}
+
+#sidebar-container .menu{
+    width: 18rem;
+}
+
+.bg-primary{
+    background-color: #111B54 !important;
+}
+
+.container-fluid label{
+    font-size: 18px;
+}
+
+.container-fluid thead{
+    font-size: 17px;
+}
+
+.form input{
+    height: 10px;
+    width: 15px;
+}
+

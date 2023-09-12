@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<script src="js/Respuesta.js" type="text/javascript"></script>
+ <script>
+          if(localStorage.getItem("tipo")!== null ) {
+        console.log("No pasa nada");
+    }else{
+        console.log("Invalido");
+   window.location.href = "index.html";
+    }
+         </script>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="d-flex">
+                <div class="w-100">
+                    <br>
+                    <div id="contenedorMain">
+                        <div class="container-fluid">
+                            <h3>
+                                <b>Registro de Cotizacion</b>
+                            </h3>
+                            <!--
+                                Modal inicio
+                            -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="text-align: left">
+                                            &nbsp;&nbsp;&nbsp;
+                                            <h3 class="modal-title" id="exampleModalLabel" style="text-align: left">
+                                                <b>Formulario de Registro</b>
+                                            </h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form class="form-horizontal" id="formPago">
+                                            <div class="modal-body col-12" style="">
+
+                                                <input type="text" id="txtIdPW" hidden=""/> 
+                                                <br>
+                                                <label><b>DATOS DE COTIZACIÓN</b></label>
+                                                <br>
+                                                <br>
+                                                <div class="form-group col-sm-6" style="">
+                                                    <label for="txtCanal" class="col-sm-4 control-label">Canal </label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" id="txtCanal" style="width: 100%;" disabled name="txtCanal">
+                                                            <option selected>Selecciona una opción</option>
+                                                            <option value="Página web">Página web </option> 
+                                                            <option value="Call center">Call center</option> 
+                                                            <option value="Facebook">Facebook </option>
+                                                            <option value="Linkedin">Linkedin</option> 
+                                                            <option value="Instagram">Instagram </option>
+                                                            <option value="Whatsapp Bussines">Whatsapp Bussines</option> 
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <input type="text" id="txtIdCliente" hidden=""/>
+                                                <input type="number" placeholder="Empleado" id="txtIdEmpleado" hidden/>
+
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtAbreviatura" class="col-sm-4 control-label">Abreviatura</label>
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control" id="txtAbreviatura" style="width: 100%;" disabled name="txtAbreviatura">
+                                                                <option selected>Selecciona una opción</option>
+                                                                <option value="Prospecto">Prospecto </option> 
+                                                                <option value="Cliente">Cliente</option> 
+                                                                <option value="Forwarder">Forwarder </option>
+                                                                <option value="No objetivo">No objetivo</option> 
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtVia" class="col-sm-4 control-label">Via</label>
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control" id="txtVia" disabled style="width: 100%;" name="txtVia">
+                                                                <option selected>Selecciona una opción</option>
+                                                                <option value="Terrestre">Terrestre </option> 
+                                                                <option value="Aéreo">Aéreo</option> 
+                                                                <option value="Marítimo">Marítimo </option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtTrasporte" class="col-sm-4 control-label">Transporte</label>
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control" id="txtTrasporte" disabled style="width: 100%;" name="txtTrasporte">
+                                                                <option selected>Selecciona una opción</option>
+                                                                <option value="Carga Consolidada LTL">Carga Consolidada (LTL)</option> 
+                                                                <option value="Carga Consolidada CTL">Carga Consolidada (CTL)</option> 
+                                                                <option value="Aéreo">Aéreo</option> 
+                                                                <option value="Contenedor completo">Contenedor completo </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtOrigen" class="col-sm-4 control-label">Origen</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtOrigen" disabled name="txtOrigen" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtDestino" class="col-sm-4 control-label">Destino</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtDestino" disabled name="txtDestino" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtMercancia" class="col-sm-4 control-label">Mercancia</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtMercancia" disabled name="txtMercancia" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtPesoBruto" class="col-sm-6 control-label">Peso Bruto</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="number" id="txtPesoBruto" disabled name="txtPesoBruto" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtNoPaquetes" class="col-sm-6 control-label">Numero de Paquetes</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="number" id="txtNoPaquetes" disabled name="txtNoPaquetes" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtVolumenP" class="col-sm-6 control-label">Volumen del Paquete</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="number" id="txtVolumenP" disabled name="txtVolumenP" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtComentarios" class="col-sm-6 control-label">Comentarios</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtNoPaquetes" disabled name="txtComentarios" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <br><br>
+                                                <label><b>CLIENTE</b></label>
+                                                <br>
+                                                <br>
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+
+                                                        <label for="txtNombreCliente" class="col-sm-6 control-label">Nombre </label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtNombreCliente" disabled name="txtNombreCliente" class="form-control">
+                                                        </div>
+                                                    </div>
+
+
+                                                   
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtCorreoCliente" class="col-sm-8 control-label">Correo Electronico </label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtCorreoCliente" disabled name="txtCorreoCliente" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtPaginaCliente" class="col-sm-8 control-label">Pagina</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtPaginaCliente" disabled name="txtPaginaCliente" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtTelefonoCliente" class="col-sm-8 control-label">Telefono</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="number" id="txtTelefonoCliente" disabled name="txtTelefonoCliente" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtUbicacionCliente" class="col-sm-8 control-label">WA Business</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="number" id="txtUbicacionCliente" disabled name="txtUbicacionCliente" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtEmpresaCliente" class="col-sm-8 control-label">Empresa</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtEmpresaCliente" disabled name="txtEmpresaCliente" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtFechaContacto" class="col-sm-8 control-label">Fecha de Contacto</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="date" id="txtFechaContacto" disabled name="txtFechaContacto" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <br><br>
+                                                    <label><b>RESPUESTA</b></label>
+                                                    <br>
+                                                    <br>
+                                                    <div class="form-group col-sm-6" style="">
+
+                                                       
+                                                            <input type="text" placeholder="idPW " id="txtIdPW" hidden=""/>  
+                                                            <input type="text" id="txtIdRespuesta" name="txtIdRespuesta" class="form-control" required hidden>
+                                                   
+                                                    </div>
+
+                                                </div>
+                                                <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtAtencion" name="txtAtencion"  class="form-control" value="Realizado" hidden >
+                                                        </div>
+                                                    </div>
+                                                    <div class="row"  style="">
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtObservaciones" class="col-sm-8 control-label">Observaciones</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" id="txtObservaciones" name="txtObservaciones" placeholder="Observaciones" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtFechaAtencion" class="col-sm-8 control-label">Fecha de atencion</label>
+                                                        <div class="col-sm-8">
+
+                                                            <input type="date" id="txtFechaAtencion" name="txtFechaAtencion" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                    <div class="form-group col-sm-6" style="">
+                                                        <label for="txtEstatus" class="col-sm-8 control-label">Estatus</label>
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control" id="txtEstatus" style="width: 100%;" name="txtEstatus">
+                                                                <option selected>Selecciona una opción</option>
+                                                                <option value="Contactada  ">Contactada  </option> 
+                                                                <option value="Cotizada  ">Cotizada</option> 
+                                                                <option value="Pendiente">Pendiente</option> 
+                                                                <option value=" Declinado"> Declinado </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                
+
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">&nbsp;<b>Cerrar &nbsp; <i class="icon ion-md-close"></i></b>&nbsp;</button>
+
+                                                <input type="submit" class="btn btn-success"  id="btnRA" value="Registrar &nbsp ">
+
+                                            </div>
+                                        </form> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <!--
+                            fin xd
+                            -->
+
+                            <br><br>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="table-responsive">
+
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nombre Cliente</th>
+                                                        <th>Correo </th>
+                                                        <th>Empresa</th>
+                                                        <th>Fecha de Contacto</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tableMain">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>        
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/Respuesta.js" type="text/javascript"></script>    
+<script type="text/javascript"> refrescarTablaClienteR();</script>
+

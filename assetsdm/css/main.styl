@@ -1,0 +1,312 @@
+@import 'normalize.css'
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900')
+
+body
+  font-family 'Roboto', sans-serif
+
+fuente(tamanio,ancho)
+  font-family 'Roboto', sans-serif
+  font-weight ancho
+  font-size tamanio
+
+azul = #00628b
+gris = #7d8687
+
+naranja = #5a5a5a
+naranja1 = #aaaaaa
+gris1 = #e0e5e7
+gris2 = #3e3e3e
+azul1 = #5a5a5a
+azul2 = #aaaaaa
+
+h1 
+  text-align center
+  font-weight 700
+
+h2
+  margin 0px 0px 20px 0px
+  padding 0px
+  color #464646
+  font-size 1.7em
+  font-weight normal
+a 
+  text-decoration none
+a:hover 
+  text-decoration none
+
+.title 
+  fuente(40px,500)
+  text-align center
+
+input[type="text"] ,input[type="password"], input[type="submit"], select, textarea
+  border-radius 5px
+  outline 0px
+  resize none
+
+#loginTemplate
+  padding 0px
+  margin 0px
+
+
+#login_message
+  display block
+  padding 10px 0px 10px 0px
+  margin 0px
+  color #9A9899
+  fuente(18px,400)
+  text-align center
+
+#form_login
+  display table
+  width 330px
+  padding-top 20px
+  padding-bottom 70px
+  margin 15px auto 0px auto
+  p
+    display block
+    padding 0px
+    margin 0px
+    label
+      display block
+    input[type="text"], input[type="password"]
+      display table
+      margin 5px auto 5px auto
+      padding 5px 10px
+      width 100%
+      border solid 1px #ccc
+    input[type="submit"]
+      display table
+      padding 10px 20px
+      margin 20px auto 0px auto
+      background naranja
+      border none
+      color #FFF
+      fuente(15px,400)
+    input[type="submit"]:hover
+      background naranja1
+
+#adminTemplate
+  font-size 12px
+  margin 0px
+  padding 0px
+  padding-bottom 10px
+  #header
+    height 55px
+    padding 0px 10px 20px 10px
+    /*background-image url('../img/dots.jpg')*/
+    position relative
+    h2
+      position absolute
+      top 15px
+      left 210px
+      z-index 1
+      color gris
+      font-size 30px
+      font-weight 300
+      span
+        font-weight 400
+    span a
+      float right
+      margin 15px 0px 0px 15px
+      color #fff
+      padding 5px 10px
+      background naranja
+      border-radius  5px
+      fuente(14px,400)
+      &:hover
+        background naranja1
+
+  #container
+    margin auto 
+    #menu_wrapper
+      width 180px 
+      padding 10px
+      float left
+      .menu
+        -webkit-border-top-left-radius  5px 
+        -webkit-border-top-right-radius  5px 
+        -moz-border-radius-topleft  5px 
+        -moz-border-radius-topright  5px 
+        border-top-left-radius  5px 
+        border-top-right-radius  5px 
+        margin-bottom 10px 
+        .menu_title
+          fuente(16px,700) 
+          background  azul1
+          color #fff 
+          padding 6px 
+          -webkit-border-top-left-radius  5px 
+          -webkit-border-top-right-radius  5px 
+          -moz-border-radius-topleft  5px 
+          -moz-border-radius-topright  5px 
+          border-top-left-radius  5px 
+          border-top-right-radius  5px 
+        a
+          color azul2
+          fuente(16px,400)
+          padding 6px 
+          display block 
+          background-color #fff 
+          border-top 1px solid #fff 
+          border-bottom 1px solid #fff 
+          &:hover
+            background  #f2f2f2 
+            background  -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f2f2f2)) 
+            background  -moz-linear-gradient(top, #ffffff, #f2f2f2) 
+            border-top 1px solid #f2f2f2 
+            border-bottom 1px solid #ccc
+            color gris2
+
+  #page_content
+    position relative
+    overflow hidden
+    padding 10px 5px 5px 5px
+    width auto
+
+#error
+  color #C00000
+  p
+    padding 0
+    margin 0
+
+
+.list_buttons
+  text-align right
+  font-size 9px
+
+.button_set
+  text-align: right
+  font-size: 11px
+  margin: 10px 0px
+  clear: both
+
+.button
+  font-size: 11px
+
+.gc_table
+  width: 100%
+  border-collapse: collapse
+  -moz-box-shadow: 0px 0px 3px #ccc
+  -webkit-box-shadow: 0px 0px 3px #ccc
+  box-shadow: 0px 0px 3px #ccc
+  -webkit-border-top-left-radius: 5px
+  -webkit-border-top-right-radius: 5px
+  -moz-border-radius-topleft: 5px
+  -moz-border-radius-topright: 5px
+  border-top-left-radius: 5px
+  border-top-right-radius: 5px
+
+.gc_table thead tr th
+  font-size: 13px
+  background: #333
+  color: #fff
+  padding: 6px
+  text-align: left
+
+.gc_table thead tr th a
+  color: #fff
+
+.gc_table thead tr td, .gc_table tfoot tr td
+  font-size: 11px
+  padding: 0px
+
+.gc_table thead tr th.gc_cell_left
+  -webkit-border-top-left-radius: 5px
+  -moz-border-radius-topleft: 5px
+  border-top-left-radius: 5px
+
+.gc_table thead tr th.gc_cell_right
+  -webkit-border-top-right-radius: 5px
+  -moz-border-radius-topright: 5px
+  border-top-right-radius: 5px
+
+.gc_table tbody tr td
+  background-color: #fff
+  padding: 5px
+  border-top: 1px solid #fff
+  border-bottom: 1px solid #f2f2f2
+  color: #555
+
+.gc_table tbody tr:hover td
+  background: -moz-linear-gradient(top, #ffffff, #f2f2f2)
+  border-top: 1px solid #f2f2f2
+  border-bottom: 1px solid #ccc
+
+.table_nav tbody tr:hover td
+  background: #fff
+  padding: 5px
+  border-top: 1px solid #fff
+  border-bottom: 1px solid #f2f2f2
+  color: #555
+
+.gc_table tbody tr td.gc_cell_right
+  padding-right: 10px
+
+
+#imagen_gal
+  padding 0
+  li
+    float left
+    margin 5px
+    list-style none
+    position relative
+    width 130px
+    height 130px
+    background #fff
+    a
+      background url(../img/icon-delete.png) no-repeat top left
+      width 18px
+      height 18px
+      position absolute
+      top 2px
+      left 2px
+      z-index 1
+    img
+      position relative
+      z-index 0
+      border 1px solid #ccc
+      padding 10px
+      width 100px
+      height 100px
+
+#esp_field_box
+#eng_field_box
+  text-transform uppercase
+  font-size 16px
+  font-weight 600
+
+.placeholder
+  padding 20px 50px
+  li 
+    margin-bottom 10px
+    border solid 1px #ccc
+    padding 10px
+    font-size 16px
+    background #FFF
+    img 
+      margin-bottom 15px 
+  li:hover
+    cursor move
+
+.icoOpc
+  float right
+  margin-top -30px
+  margin-left 15px
+
+.clear
+  clear both
+
+#catalog
+  border solid 1px #aaa
+  ul 
+    margin 0px 
+    padding 20px
+    li
+      margin-bottom 10px
+      border solid 1px #ccc
+      padding 10px
+      font-size 16px
+      img 
+        margin-bottom 15px 
+    li:hover
+      cursor move

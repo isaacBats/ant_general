@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--
+        Frameworks & CSS pages
+        -->
+        <link rel="stylesheet" href="framew/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="framew/sweetalert2/sweetalert2.min.css" crossorigin="anonymous">
+         <link rel="shortcut icon" href="G.png" />
+        <title>General CRM</title>  
+        <link href="cs/estilo1.css" rel="stylesheet">
+        
+        
+    </head>
+   
+    <body>
+        
+        <!--
+        Div para el formulario de login
+        -->
+       
+        <div class="center" >
+            <br>
+            <h1 align="center">
+                Bienvenido
+                <br>
+                <img src="media/usuario.png" height="100px" width="100px"/>
+            </h1>
+            
+            <form method="post">
+                <div class="txt_field">
+                    <input type="text" id="txtCorreo"  required/>
+                    <label>
+                        Usuario
+                    </label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" id="txtContrasenia"  required/>
+                  
+                    <label>
+                        Contraseña
+                    </label>
+                </div>
+                <div style="align-content: center" align="center">
+                    <button type="button" class="btn btn-outline-primary" onclick="login();">
+                    Iniciar sesi&oacute;n
+                </button>
+                </div>
+                <br>
+            </form>
+            <br>
+        </div>
+        <div id="contenedorPrincipal">
+            
+        </div>
+        <!--
+        Scripts
+        -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="framew/bootstrap/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+        <script type="text/javascript" src="framew/sweetalert2/sweetalert2.min.js"  crossorigin="anonymous"></script>
+        
+        <script type="text/javascript" src="Login.js"></script>
+    </body>
+</html>

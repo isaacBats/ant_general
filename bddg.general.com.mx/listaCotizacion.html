@@ -1,0 +1,121 @@
+<script src="js/Cotizacion.js" type="text/javascript"></script>
+ <script>
+          if(localStorage.getItem("tipo")!== null ) {
+        console.log("No pasa nada");
+    }else{
+        console.log("Invalido");
+   window.location.href = "index.html";
+    }
+         </script>
+<div class="card">
+
+
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+             <button type="button" class="btn btn-light" value="Facebook" id="txtPalabra" onclick="search();"> Facebook</button>                     
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-light" value="Call center" id="txtPalabra1" onclick="search1();"> Call center</button>                      
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-light" value="Linkedin" id="txtPalabra2" onclick="search2();"> Linkedin</button>                
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-light" value="Instagram" id="txtPalabra3" onclick="search3();"> Instagram</button>                
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-light" value="Whatsapp Bussines" id="txtPalabra4" onclick="search4();"> Whatsapp Bussines</button>                
+        </li>
+         <li class="nav-item">
+            <button type="button" class="btn btn-light" value="Página web" id="txtPalabra5" onclick="search5();">Pagina Web</button>                
+        </li>
+    </ul>
+    
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="text-align: left">
+                                            &nbsp;&nbsp;&nbsp;
+                                            <h3 class="modal-title" id="exampleModalLabel" style="text-align: left">
+                                                <b>Formulario de Registro</b>
+                                            </h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form class="form-horizontal" id="formPago">
+                                            <div class="modal-body col-12" style="">
+                                                    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th> #</th>
+                                <th>Nombre Cliente</th>                                                        
+                                <th>Correo</th>
+                                 <th>Fecha de Contacto</th>
+                                <th>Estatus</th>                                                        
+                                <th>Observaciones</th>
+                                <th>Fecha de Atención</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="listaC">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>        
+        </div>
+    </div>
+                                                
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">&nbsp;<b>Cerrar &nbsp; <i class="icon ion-md-close"></i></b>&nbsp;</button>
+
+                                             
+                                            </div>
+                                        </form> 
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+    
+    
+    
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th> #</th>
+                                <th>Canal</th>                                                        
+                                <th>Nombre</th>
+                                <th>Correo</th>                                                        
+                                <th>Empresa</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="tableMain">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>        
+        </div>
+    </div>
+</div>

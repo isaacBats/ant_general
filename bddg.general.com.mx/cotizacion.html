@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+ <script>
+          if(localStorage.getItem("tipo")!== null ) {
+        console.log("No pasa nada");
+    }else{
+        console.log("Invalido");
+   window.location.href = "index.html";
+    }
+         </script>
+<script src="js/Cotizacion.js" type="text/javascript"></script>
+<div class="d-flex">
+
+    <div class="w-100">
+
+        <br>
+        <div id="contenedorMain">
+            <div class="container-fluid">
+                <h3>
+                    <b>Registro de Cotizacion</b>
+                </h3>
+                <br>
+                &nbsp;&nbsp;
+                <label>
+                    <b>Nueva Cotizacion</b>
+                </label>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-success" id="btnNuevo" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        data-bs-toggle = "tooltip" data-bs-placement="top" title="Agregar registro"  onclick="limpiarCotizacion();">
+                    &nbsp;&nbsp;&nbsp;<i class="icon ion-md-add mr-4"></i>&nbsp;&nbsp;&nbsp;
+                </button>
+
+
+                <!--
+                Pop up
+                Registro nuevo y modificar
+                -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="text-align: left">
+                                &nbsp;&nbsp;&nbsp;
+                                <h3 class="modal-title" id="exampleModalLabel" style="text-align: left">
+                                    <b>Formulario de Registro</b>
+                                </h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form class="form-horizontal" id="formCoti">
+                                <div class="modal-body col-12" style="">
+
+                                    <input type="text" id="txtIdPW" hidden=""/> 
+                                    <div class="form-group col-sm-6" style="">
+                                        
+                                                
+                                                        <label for="txtCanal" class="col-sm-4 control-label">Canal </label>
+                                                        <div class="col-sm-8">
+                                                            <select class="form-control" id="txtCanal" style="width: 100%;"  name="txtCanal">
+                                                                 <option value="">Selecciona una opción</option>
+                                                                <option value="Página web">Página web </option> 
+                                                                <option value="Call center">Call center</option> 
+                                                                <option value="Facebook">Facebook </option>
+                                                                <option value="Linkedin">Linkedin</option> 
+                                                                <option value="Instagram">Instagram </option>
+                                                                <option value="Whatsapp Bussines">Whatsapp Bussines</option> 
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                    <input type="text" id="txtIdCliente" hidden=""/>
+                                    <input type="number" placeholder="Empleado" id="txtIdEmpleado" hidden/>
+
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtAbreviatura" class="col-sm-4 control-label">Abreviatura</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="txtAbreviatura" style="width: 100%;"  name="txtAbreviatura">
+                                                      <option value="">Selecciona una opción</option>
+                                                    <option value="Prospecto">Prospecto </option> 
+                                                    <option value="Cliente">Cliente</option> 
+                                                    <option value="Forwarder">Forwarder </option>
+                                                    <option value="No objetivo">No objetivo</option> 
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtVia" class="col-sm-4 control-label">Via</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="txtVia" style="width: 100%;" name="txtVia">
+                                                     <option value="">Selecciona una opción</option> 
+                                                    <option value="Terrestre">Terrestre </option> 
+                                                    <option value="Aéreo">Aéreo</option> 
+                                                    <option value="Marítimo">Marítimo </option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtTransporte" class="col-sm-4 control-label">Transporte</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="txtTransporte" style="width: 100%;" name="txtTrasporte">                                                 
+                                                    <option value="">Selecciona una opción</option>
+                                                    <option value="Carga Consolidada LTL">Carga Consolidada (LTL)</option> 
+                                                    <option value="Carga Consolidada CTL">Carga Consolidada (CTL)</option> 
+                                                    <option value="Aéreo">Aéreo</option> 
+                                                    <option value="Contenedor completo">Contenedor completo </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtOrigen" class="col-sm-4 control-label">Origen</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtOrigen" name="txtOrigen" class="form-control" placeholder="Origen" onkeypress="return soloLetras(event);" >
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtDestino" class="col-sm-4 control-label">Destino</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtDestino" name="txtDestino" class="form-control" placeholder="Destino" onkeypress="return soloLetras(event);">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtMercancia" class="col-sm-4 control-label">Mercancia</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtMercancia" name="txtMercancia" class="form-control" placeholder="Mercancia" onkeypress="return soloLetras(event);" >
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtPesoBruto" class="col-sm-6 control-label">Peso Bruto</label>
+                                            <div class="col-sm-8">
+                                                <input type="number" id="txtPesoBruto" name="txtPesoBruto" class="form-control" placeholder="Peso Bruto" onkeypress="return valideKey(event);">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtNoPaquetes" class="col-sm-6 control-label">Numero de Paquetes</label>
+                                            <div class="col-sm-8">
+                                                <input type="number" id="txtNoPaquetes" name="txtNoPaquetes" class="form-control" placeholder="# Paquetes" onkeypress="return valideKey(event);">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtVolumenP" class="col-sm-6 control-label">Volumen del Paquete</label>
+                                            <div class="col-sm-8">
+                                                <input type="number" id="txtVolumenP" name="txtVolumenP" class="form-control" placeholder="Volumen" onkeypress="return valideKey(event);">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtComentarios" class="col-sm-6 control-label">Comentarios</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtNoPaquetes" name="txtComentarios" placeholder="Comentarios" class="form-control">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <br><br>
+                                                 <label><b>CLIENTE</b></label>
+                                                    <br>
+                                                <br>
+                                    
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtNombreCliente" class="col-sm-6 control-label">Nombre </label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtNombreCliente" name="txtNombreCliente" class="form-control"  onkeypress="return soloLetras(event);">
+                                            </div>
+                                        </div>
+<!--  
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtApellidoPaternoCliente" class="col-sm-6 control-label">Apellido Paterno</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtApellidoPaternoCliente" name="txtApellidoPaternoCliente" class="form-control"  onkeypress="return soloLetras(event);">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtApellidoMaternoCliente" class="col-sm-8 control-label">Apellido Materno</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtApellidoMaternoCliente" name="txtApellidoMaternoCliente" class="form-control"  onkeypress="return soloLetras(event);">
+                                            </div>
+                                        </div> -->
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtCorreoCliente" class="col-sm-8 control-label">Correo Electronico Cliente</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtCorreoCliente" name="txtCorreoCliente" class="form-control">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtPaginaCliente" class="col-sm-8 control-label">Pagina</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtPaginaCliente" name="txtPaginaCliente" class="form-control" >
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtTelefonoCliente" class="col-sm-8 control-label">Telefono</label>
+                                            <div class="col-sm-8">
+                                                <input type="number" id="txtTelefonoCliente" name="txtTelefonoCliente" class="form-control" onkeypress="return valideKey(event);" >
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtUbicacionCliente" class="col-sm-8 control-label">WA Business</label>
+                                            <div class="col-sm-8">
+                                                <input type="number" id="txtUbicacionCliente" name="txtUbicacionCliente" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtEmpresaCliente" class="col-sm-8 control-label">Empresa</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" id="txtEmpresaCliente" name="txtEmpresaCliente" class="form-control">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row"  style="">
+
+                                        <div class="form-group col-sm-6" style="">
+                                            <label for="txtFechaContacto" class="col-sm-8 control-label">Fecha de Contacto</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" id="txtFechaContacto" name="txtFechaContacto" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        
+
+                                    </div>
+                                    <br><br><br>
+                                   
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">&nbsp;<b>Cerrar &nbsp; <i class="icon ion-md-close"></i></b>&nbsp;</button>
+
+                                    <input type="submit" class="btn btn-success"  id="btnRA" value="Registrar &nbsp ">
+
+                                </div>
+                            </form> 
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <!--
+                fin xd
+                -->
+
+                <br><br>
+                <div class="container-fluid">
+                    <div class="container">
+                        <table class="table table-responsive-lg table-hover" style="text-align: center">
+                            <thead align="center" style="color: #111B54">
+                                <tr>
+                                    <th scope="col">Folio Cliente</th>
+                                    <th scope="col">Nombre </th>
+                                    <th scope="col">Apellido </th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Empresa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableMain">
+                                <tr>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="Cotizacion.js" type="text/javascript"></script>    
+<script type="text/javascript"> refrescarTablaCliente();</script>
