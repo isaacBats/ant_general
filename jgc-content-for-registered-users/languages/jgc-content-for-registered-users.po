@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JGC Content for Registered Pro\n"
+"POT-Creation-Date: 2015-06-10 12:24+0100\n"
+"PO-Revision-Date: 2015-06-10 12:24+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/jgc-cfr-functions.php:20 inc/jgc-cfr-meta-box.php:83
+msgid "Register"
+msgstr ""
+
+#: inc/jgc-cfr-functions.php:22 inc/jgc-cfr-meta-box.php:89
+msgid "Log in"
+msgstr ""
+
+#: inc/jgc-cfr-meta-box.php:39
+msgid "Content for registered users only."
+msgstr ""
+
+#: inc/jgc-cfr-options.php:42
+msgid "Options"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:50
+msgid "Metabox priority"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:55
+msgid "High"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:60
+msgid "Default"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:62
+msgid ""
+"'High'  displays the metabox on top of right side on edit screen. 'Default' "
+"displays the metabox on right side but no on top"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:67
+msgid "Message text"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:74
+msgid ""
+"Message to be displayed to users not registered replacing the post content"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:79
+msgid "Message color"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:84
+msgid "Blue"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:89
+msgid "Green"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:94
+msgid "Orange"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:99
+msgid "Red"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:104
+msgid "Black"
+msgstr ""
+
+#: inc/jgc-cfr-options.php:112
+msgid "Save changes"
+msgstr ""
+
+#: jgc-content-for-registered-users.php:31
+msgid "This content is for registered users only."
+msgstr ""

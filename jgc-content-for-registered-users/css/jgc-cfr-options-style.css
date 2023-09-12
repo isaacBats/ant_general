@@ -1,0 +1,23 @@
+.wrapper-options {
+	width:90%;
+	margin: 14px;
+	padding: 21px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #ffffff;
+}
+.wrapper-options h1 {
+	border-bottom: 1px solid #333;
+	padding: 14px 7px;
+}
+.wrapper-options h2 {
+	border: 1px solid #333;
+	padding: 7px;
+}
+.disabled-option {
+	text-align:center;
+	padding:3px 0;
+	margin-bottom:5px;
+	border:1px solid #FC0;
+	background-color:#FEFECB
+}
