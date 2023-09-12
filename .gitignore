@@ -2,7 +2,7 @@
 .well-known/
 .well-known./
 __MACOSX/
-#demo/
+demo/
 #bp-activity-autoloader/
 #bp-directory-integration/
 #bp-force-profile-photo/
