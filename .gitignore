@@ -37,6 +37,9 @@ xcloner-backup-and-restore/
 androapp/
 backup/
 backwpup/
+mediapress/
+nav-menu-roles/
+presentacion/
 
 # files
 docker-compose.yml
