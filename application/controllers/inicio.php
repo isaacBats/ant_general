@@ -1,437 +1,236 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-
-
 class Inicio extends CI_Controller {
-
-
-
 	/** Desarrollado por: Juan José Villanueva	 */
-
-
-
 	public function __construct()
-
 	{
-
 		parent:: __construct ();
-
 		$this->load->model('web_model');
-
 		$this->load->model('esp_model');
-
-
-
 		$this->load->library('form_validation');
-
 	}
 
 
 
 	public function index()
-
 	{
-
 		$cont['DIR'] = base_url();
-
+		
 		//Posicion
-
 		$pos=$this->web_model->getTable('gen_posicion_banner');
-
 		switch ($pos[0]->horizontal) {
-
 			case 'i':
-
 				$h1='col-md-2 ';
-
 				$h2='col-md-10';
-
 				break;
-
 			case 'c':
-
 				$h1='col-md-3 col-md-offset-2';
-
 				$h2='col-md-7';
-
 				break;
-
 			case 'd':
-
 				$h1='col-md-2 col-md-offset-5';
-
 				$h2='col-md-5';
-
 				break;
-
 		}
-
+		
 		switch ($pos[0]->vertical) {
-
 			case 'u':
-
 				$top='top:2%;';
-
 				break;
-
 			case 'm':
-
 				$top='top:40%;';
-
 				break;
-
 			case 'd':
-
 				$top='top:76%;';
-
 				break;
-
 		}
-
+		
 		$cont['FRASES']='
-
-		<div class="letras" style="'.$top.'">
-
-			<div class="container">
-
-				<div class="row">
-
-					<div class="'.$h1.' tar visible-md visible-lg">
-
-						<img src="'.base_url().'img/logo_general.png" alt="General logotipo">
-
-					</div>
-
-					<div class="'.$h2.' visible-md visible-lg">
-
-						<div class="cambiante">es</div>
-
-						<div class="ancho typed"></div>
-
-						<span id="typed-cursor"></span>
-
-					</div>
-
+			<div class="letras" style="'.$top.'">
+			  <div class="container">
+			    <div class="row">
+				  <div class="'.$h1.' tar visible-md visible-lg">
+				    <img src="'.base_url().'img/logo_general.png" alt="General logotipo">
+				  </div>
+				  <div class="'.$h2.' visible-md visible-lg">
+				    <div class="cambiante">es</div>
+					<div class="ancho typed"></div>
+					<span id="typed-cursor"></span>
+				  </div>
 				</div>
-
-			</div>
-
-		</div>';
-
-
+			  </div>
+			</div>';
 
 		//Banners
-
 		$ban=$this->web_model->getTable('gen_banner_home');
-
 		$cont['BANNER_HOME']='';
-
 		$cont['BANNER_HOMEM']='';
-
 		foreach ($ban as $b) {
-
-			$cont['BANNER_HOME'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home.'" alt="'.$b->nombre_imagen.'" width="100%" class="img-responsive" />';
-
-			$cont['BANNER_HOMEM'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home_mobil.'" alt="'.$b->nombre_imagen_mobil.'" width="100%" class="img-responsive" />';
-
+			$cont['BANNER_HOME'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home.'" 
+			  alt="'.$b->nombre_imagen.'" 
+			  width="100%" 
+			  class="img-responsive" />';
+			$cont['BANNER_HOMEM'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home_mobil.'" 
+			  alt="'.$b->nombre_imagen_mobil.'" 
+			  width="100%" 
+			  class="img-responsive" />';
 		}
 
 		//Frases HOME
-
 		$fra=$this->web_model->getTable('gen_frases_home');
-
 		$frases='';
-
 		foreach ($fra as $f) {
-
 			$frases.='"'.$f->general_es.'",';
-
 		}
-
+		
 		$cont['SCRIPT']='
-
 		$(function(){
-
-
-
 			$(".typed").typed({
-
 			    strings: ['.$frases.'],
-
 			    typeSpeed: 30,
-
 			    backDelay: 2500,
-
 			    loop: true,
-
 			    // defaults to false for infinite loop
-
 			    loopCount: false,
-
 			});
-
-
-
 		});';
 
 		//Ventanas
-
 		$ven=$this->web_model->getTable('gen_botones_home');
-
 		$cont['VENTANAS']='';
-
 		foreach ($ven as $v) {
-
 			$cont['VENTANAS'].='
-
 			<div class="cuadro20">
-
 				'.(($v->liga!='')?'<a href="'.$v->liga.'" target="'.$v->abrir_en.'">':'').'
-
 					<div class="itemHome">
-
 						<img src="'.base_url().'img/banners_footer/'.$v->imagen.'" alt="'.$v->nombre_imagen.'">
-
 						<div class="hover">
-
 							<div class="titulo">'.$v->titulo.'</div>
-
 							<div class="subtitulo">'.$v->subtitulo.'</div>
-
 						</div>
-
 					</div>
-
 				'.(($v->liga!='')?'</a>':'').'
-
 			</div>';
-
 		}
 
 		$data = array(
-
 			'DIR'=>base_url(),
-
 			'CONTENT'=>$this->parser->parse('inicio.html',$cont,true),
-
-            
-
 		);
-
 		$data['MAIN_MENU']=$this->esp_model->mainMenu();
-
 		$data['SEC_MENU']=$this->esp_model->secondMenu();
-
 		$info=$this->web_model->getGeneral();
-
 		$data= array_merge($data,$info);
-
 		$this->parser->parse('plantilla.html',$data);
-
 	}
 
 
 
 	public function inicio2019()
-
 	{
-
 		$cont['DIR'] = base_url();
 
 		//Posicion
-
 		$pos=$this->web_model->getTable('gen_posicion_banner');
-
 		switch ($pos[0]->horizontal) {
-
 			case 'i':
-
 				$h1='col-md-2 ';
-
 				$h2='col-md-10';
-
 				break;
-
 			case 'c':
-
 				$h1='col-md-3 col-md-offset-2';
-
 				$h2='col-md-7';
-
 				break;
-
 			case 'd':
-
 				$h1='col-md-2 col-md-offset-5';
-
 				$h2='col-md-5';
-
 				break;
-
 		}
 
 		switch ($pos[0]->vertical) {
-
 			case 'u':
-
 				$top='top:2%;';
-
 				break;
-
 			case 'm':
-
 				$top='top:40%;';
-
 				break;
-
 			case 'd':
-
 				$top='top:76%;';
-
 				break;
-
 		}
 
 		$cont['FRASES']='
-
 		<div class="letras" style="'.$top.'">
-
 			<div class="container">
-
 				<div class="row">
-
 					<div class="'.$h1.' tar visible-md visible-lg">
-
 						<img src="'.base_url().'img/logo_general.png" alt="General logotipo">
-
 					</div>
-
 					<div class="'.$h2.' visible-md visible-lg">
-
 						<div class="cambiante">es</div>
-
 						<div class="ancho typed"></div>
-
 						<span id="typed-cursor"></span>
-
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>';
 
-
-
 		//Banners
-
 		$ban=$this->web_model->getTable('gen_banner_home');
-
 		$cont['BANNER_HOME']='';
-
 		$cont['BANNER_HOMEM']='';
-
 		foreach ($ban as $b) {
-
-			$cont['BANNER_HOME'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home.'" alt="'.$b->nombre_imagen.'" width="100%" class="img-responsive" />';
-
-			$cont['BANNER_HOMEM'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home_mobil.'" alt="'.$b->nombre_imagen_mobil.'" width="100%" class="img-responsive" />';
-
+			$cont['BANNER_HOME'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home.'" 
+			  alt="'.$b->nombre_imagen.'" width="100%" class="img-responsive" />';
+			$cont['BANNER_HOMEM'].='<img src="'.base_url().'img/banners_inicio/'.$b->imagen_home_mobil.'"
+			  alt="'.$b->nombre_imagen_mobil.'" width="100%" class="img-responsive" />';
 		}
 
 		//Frases HOME
-
 		$fra=$this->web_model->getTable('gen_frases_home');
-
 		$frases='';
-
 		foreach ($fra as $f) {
-
 			$frases.='"'.$f->general_es.'",';
-
 		}
-
 		$cont['SCRIPT']='
-
 		$(function(){
-
-
-
 			$(".typed").typed({
-
 			    strings: ['.$frases.'],
-
 			    typeSpeed: 30,
-
 			    backDelay: 2500,
-
 			    loop: true,
-
 			    // defaults to false for infinite loop
-
 			    loopCount: false,
-
 			});
-
-
-
 		});';
 
 		//Ventanas
-
 		$ven=$this->web_model->getTable('gen_botones_home');
-
 		$cont['VENTANAS']='';
-
 		foreach ($ven as $v) {
-
 			$cont['VENTANAS'].='
-
 			<div class="cuadro20">
-
 				'.(($v->liga!='')?'<a href="'.$v->liga.'" target="'.$v->abrir_en.'">':'').'
-
 					<div class="itemHome">
-
 						<img src="'.base_url().'img/banners_footer/'.$v->imagen.'" alt="'.$v->nombre_imagen.'">
-
 						<div class="hover">
-
 							<div class="titulo">'.$v->titulo.'</div>
-
 							<div class="subtitulo">'.$v->subtitulo.'</div>
-
 						</div>
-
 					</div>
-
 				'.(($v->liga!='')?'</a>':'').'
-
 			</div>';
-
 		}
-
+		
 		$data = array(
-
 			'DIR'=>base_url(),
-
 			'CONTENT'=>$this->parser->parse('inicio2019.html',$cont,true),
-
-            
-
 		);
-
 		$data['MAIN_MENU']=$this->esp_model->mainMenu();
-
 		$data['SEC_MENU']=$this->esp_model->secondMenu();
-
 		$info=$this->web_model->getGeneral();
-
 		$data= array_merge($data,$info);
-
+		// echo '<pre>'; var_dump($data); exit;
 		$this->parser->parse('plantilla.html',$data);
-
 	}
 
 
