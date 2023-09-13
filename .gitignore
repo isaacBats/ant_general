@@ -27,7 +27,13 @@ login-page-styler/
 login-with-ajax/
 reportes/
 siag/
-
+wd-google-maps/
+wp-db-backup/
+wp-force-login/
+wp-user-avatar/
+wpappninja/
+wpvivid-backuprestore/
+xcloner-backup-and-restore/
 
 # files
 docker-compose.yml
