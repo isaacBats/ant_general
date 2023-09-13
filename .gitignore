@@ -34,6 +34,9 @@ wp-user-avatar/
 wpappninja/
 wpvivid-backuprestore/
 xcloner-backup-and-restore/
+androapp/
+backup/
+backwpup/
 
 # files
 docker-compose.yml
