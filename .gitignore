@@ -40,6 +40,11 @@ backwpup/
 mediapress/
 nav-menu-roles/
 presentacion/
+profile-builder/
+quick-chat/
+simple-gomaps-10/
+simple-login-form/
+simple-login-page-customizer/
 
 # files
 docker-compose.yml
