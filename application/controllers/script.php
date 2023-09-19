@@ -12,7 +12,7 @@ class Script extends CI_Controller {
 
 	public function index()
 	{
-		$this->web_model->execQuery("INSERT INTO `gen_user_perm` VALUES ('1', '11', '1');");
+		// $this->web_model->execQuery("INSERT INTO `gen_user_perm` VALUES ('1', '11', '1');");
 	}
 	
 
