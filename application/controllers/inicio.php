@@ -123,8 +123,6 @@ class Inicio extends CI_Controller {
 		$this->parser->parse('plantilla.html',$data);
 	}
 
-
-
 	public function inicio2019()
 	{
 		$cont['DIR'] = base_url();
@@ -233,214 +231,106 @@ class Inicio extends CI_Controller {
 		$this->parser->parse('plantilla.html',$data);
 	}
 
-
-
-	function guardaFormCoti($jx=false){
-
-
-
+	function guardaFormCoti($jx=false)
+	{
 		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required');
-
 		$this->form_validation->set_rules('correo', 'Email', 'trim|valid_email|required');
-
-		$this->form_validation->set_rules('g-recaptcha-response', 'Imagen Captcha', 'trim|required|callback__re_captcha');
-
+		$this->form_validation->set_rules(
+			'g-recaptcha-response', 'Imagen Captcha', 'trim|required|callback__re_captcha'
+		);
 		$p=$this->input->post();
-
 		unset($p['g-recaptcha-response']);
-
 		unset($p['aviso']);
-
 		$data=array();
-
 		if($this->form_validation->run()){
-
 			$this->db->insert('gen_formularioCoti',$p);
-
-
-
 			$mensaje = '<p>Se ha recibido un correo para cotización desde GENERAL.COM.MX</p>
-
 					<p>Vía: '.$_POST['via'].'</p>
-
 					<p>Tipo de transporte: '.$_POST['transporte'].'</p>
-
 					<p>Origen: '.$_POST['origen'].'</p>
-
 					<p>Destino: '.$_POST['destino'].'</p>
-
 					<p>Fecha: '.$_POST['fecha_entrega'].'</p>
-
 					<p>Tipo de mercancía: '.$_POST['mercancia'].'</p>
-
 					<p>Nombre: '.$_POST['nombre'].'</p>
-
 					<p>Correo: '.$_POST['correo'].'</p>
-
 					<p>Teléfono: '.$_POST['telefono'].'</p>
-
 					<p>Empresa: '.$_POST['empresa'].'</p>
-
 					<p>Sitio web: '.$_POST['sitioweb'].'</p>
-
 					<p>País: '.$_POST['pais'].'</p>
-
 					<p>Peso del producto: '.$_POST['caja1'].'</p>
-
 					<p>Cantidad de paquetes: '.$_POST['caja2'].'</p>
-
 					<p>Volúmen (metros cúbicos): '.$_POST['caja3'].'</p>
-
 					<p>Comentarios: '.$_POST['caja4'].'</p>
-
 					';
-
-
-
+			
 			$this->load->library('email');
-
 			$config['mailtype'] = 'html';
-
 			$this->email->initialize($config);
-
 			$this->email->from($_POST['correo'],$_POST['nombre']);
-
 			$this->email->from('hola@general.com.mx');
-
 			$this->email->to('jgaytan@general.com.mx');
-
 			//$this->email->bcc('villanuevajuanjo@gmail.com');
-
 			$this->email->subject('Se ha recibido un correo desde GENERAL.COM.MX');
-
 			$this->email->message($mensaje);
-
 			$this->email->send();
-
-
-
 			$data['msg']='yes';	
-
 		}else{
-
 			$data['error']=str_replace("\r\n", '', validation_errors());
-
 		}
-
-
-
+		
 		if($jx){
-
 			echo json_encode($data);
-
-		}
-
-		else{
-
+		}else{
 			if(count($data))
-
 				$this->session->set_flashdata($data);
-
 			redirect('general_es/'.$_POST['url']);
-
 		}
-
 	}
 
-
-
-	function guardaForm($jx=false){
-
-
-
+	function guardaForm($jx=false)
+	{
 		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required');
-
 		$this->form_validation->set_rules('correo', 'Email', 'trim|valid_email|required');
-
-		$this->form_validation->set_rules('g-recaptcha-response', 'Imagen Captcha', 'trim|required|callback__re_captcha');
-
+		$this->form_validation->set_rules(
+			'g-recaptcha-response', 'Imagen Captcha', 'trim|required|callback__re_captcha');
 		$p=$this->input->post();
-
 		unset($p['g-recaptcha-response']);
-
 		unset($p['aviso']);
-
 		unset($p['tipo']);
-
 		$data=array();
-
 		if($this->form_validation->run()){
-
 			$this->db->insert('gen_formulario',$p);
-
-
-
 			$mensaje = '<p>Se ha recibido un correo desde GENERAL.COM.MX</p>
-
 					<p>Nombre: '.$_POST['nombre'].'</p>
-
 					<p>Correo: '.$_POST['correo'].'</p>
-
 					<p>Teléfono: '.$_POST['telefono'].'</p>
-
 					<p>Empresa: '.$_POST['empresa'].'</p>
-
 					<p>Sitio web: '.$_POST['sitioweb'].'</p>
-
 					<p>País: '.$_POST['pais'].'</p>
-
 					<p>Comentarios: '.$_POST['caja4'].'</p>
-
-						';
-
-
+				';
 
 			$this->load->library('email');
-
 			$config['mailtype'] = 'html';
-
 			$this->email->initialize($config);
-
 			$this->email->from($_POST['correo'],$_POST['nombre']);
-
 			$this->email->from('hola@general.com.mx');
-
 			$this->email->to('jgaytan@general.com.mx');
-
 			$this->email->subject('Se ha recibido un correo desde GENERAL.COM.MX');
-
 			$this->email->message($mensaje);
-
 			$this->email->send();
-
-
-
 			$data['msg']='yes';	
-
 		}else{
-
 			$data['error']=str_replace("\r\n", '', validation_errors());
-
 		}
-
-
 
 		if($jx){
-
 			echo json_encode($data);
-
-		}
-
-		else{
-
+		}else{
 			if(count($data))
-
 				$this->session->set_flashdata($data);
-
-			redirect('general_es/'.$_POST['url']);
-
+				redirect('general_es/'.$_POST['url']);
 		}
-
 	}
 
 
