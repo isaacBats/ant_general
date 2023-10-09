@@ -333,372 +333,183 @@ class Inicio extends CI_Controller {
 		}
 	}
 
-
-
 	public function pagina($slug)
-
 	{
-
 		$cont['DIR'] = base_url();
-
 		$cont['PAGINA'] = '';
-
-
-
+		//echo '<pre>'; var_dump($slug); exit();
 		//Contenido
-
 		$pagina=$this->web_model->getId('gen_paginas','url_pagina',$slug);
-
 		if(count($pagina)==0){
-
 			redirect(base_url().'general_es/error404');
-
 		}
-
-
 
 		$modulos=$this->web_model->getModPag($pagina[0]->id_pag);
-
-
-
 		foreach ($modulos as $mod) {
-
 			switch ($mod->tipo_mod) {
-
 				case 1:
-
 					$cont['PAGINA'].=$this->esp_model->mod_imagen2texto1($mod->id_mod);
-
 					break;
-
 				case 2:
-
 					$cont['PAGINA'].=$this->esp_model->mod_titulo($mod->id_mod);
-
 					break;
-
 				case 3:
-
 					$cont['PAGINA'].=$this->esp_model->mod_imagentextoimagen($mod->id_mod);
-
 					break;
-
 				case 4:
-
 					$cont['PAGINA'].=$this->esp_model->mod_textoimagentexto($mod->id_mod);
-
 					break;
-
 				case 5:
-
 					$cont['PAGINA'].=$this->esp_model->mod_bulletsfondo($mod->id_mod);
-
 					break;
-
 				case 6:
-
 					$cont['PAGINA'].=$this->esp_model->mod_bulletsblanco($mod->id_mod);
-
 					break;
-
 				case 7:
-
 					$cont['PAGINA'].=$this->esp_model->mod_atencionclientes($mod->id_mod);
-
 					break;
-
 				case 8:
-
 					$cont['PAGINA'].=$this->esp_model->mod_texto1imagen2($mod->id_mod);
-
 					break;
-
 				case 9:
-
 					$cont['PAGINA'].=$this->esp_model->mod_lista2columnas($mod->id_pag);
-
 					break;
-
 				case 11:
-
 					$cont['PAGINA'].=$this->esp_model->mod_imagenfull($mod->id_mod);
-
 					break;
-
 				case 12:
-
 					$cont['PAGINA'].=$this->esp_model->mod_texto2columnas($mod->id_mod);
-
 					break;
-
 				case 13:
-
 					$cont['PAGINA'].=$this->esp_model->mod_texto1columna($mod->id_mod);
-
 					break;
-
 				case 14:
-
 					$cont['PAGINA'].=$this->esp_model->mod_indicadores($mod->id_mod);
-
 					break;
-
 				case 15:
-
 					$cont['PAGINA'].=$this->esp_model->mod_camiones($mod->id_mod);
-
 					break;
-
 				case 16:
-
 					$cont['PAGINA'].=$this->esp_model->mod_atencion($mod->id_mod);
-
 					break;
-
 				case 17:
-
 					$cont['PAGINA'].=$this->esp_model->mod_mapa2ubicaciones($mod->id_mod);
-
 					break;
-
 				case 18:
-
 					$cont['PAGINA'].=$this->esp_model->mod_mapa2texto1($mod->id_mod);
-
 					break;
-
 				case 19:
-
 					$cont['PAGINA'].=$this->esp_model->mod_texto1mapa2($mod->id_mod);
-
 					break;
-
 				case 20:
-
 					$cont['PAGINA'].=$this->esp_model->mod_descargas($mod->id_mod);
-
 					break;
-
 				case 21:
-
 					$cont['PAGINA'].=$this->esp_model->mod_imagenfull_cintillo($mod->id_mod);
-
 					break;
-
 				case 22:
-
 					$cont['PAGINA'].=$this->esp_model->mod_unidades($this->uri->segment(3));
-
 					break;
-
 				case 23:
-
 					$cont['PAGINA'].=$this->esp_model->mod_error404();
-
 					break;
-
 				case 24:
-
 					$cont['PAGINA'].=$this->esp_model->mod_documentos($mod->id_mod);
-
 					break;
-
 				case 25:
-
 					$cont['PAGINA'].=$this->esp_model->mod_instrucciones($mod->id_mod);
-
 					break;
-
 				case 26:
-
 					$cont['PAGINA'].=$this->esp_model->mod_titulo_geo($mod->id_mod);
-
 					break;
-
 				case 27:
-
 					$cont['PAGINA'].=$this->esp_model->mod_formulario($mod->id_mod);
-
 					break;
-
 				case 28:
-
 					$cont['PAGINA'].=$this->esp_model->mod_formularioCotiza($mod->id_mod);
-
 					break;
-
 			}
-
-
-
-			
-
 		}
 
-
-
 		$cont['PAGINA'].=$this->esp_model->mod_atencionclientes($pagina[0]->id_pag);
-
 		$cont['PAGINA'].=$this->esp_model->mod_footer();
-
 		$cont['SCRIPT']='';
 
 		//Send correo
-
 		if(isset($_POST['telefono'])){
-
 			$mensaje = '<p>Se ha recibido un teléfono desde GENERAL.COM.MX</p>
-
 						<p>Teléfono: '.$_POST['telefono'].'</p>';
-
-
-
+			
 			$this->load->library('email');
-
 			$config['mailtype'] = 'html';
-
 			$this->email->initialize($config);
-
 			$this->email->from('hola@general.com.mx');
-
 			$this->email->to('jgaytan@general.com.mx');
-
 			$this->email->subject('Se ha recibido un teléfono desde GENERAL.COM.MX');
-
 			$this->email->message($mensaje);
-
 			$this->email->send();
 
 			$cont['SCRIPT']='
-
 			$(window).load(function() {
-
 				swal({
-
 						title: 	"Recibido!", 
-
 						text: 	"Recibimos tu teléfono, en breve nos pondremos en contacto contigo!", 
-
 						type: 	"success"
-
 					},
-
 						function(isConfirm){   
-
 							if (isConfirm) {  
-
 								location.href="'.base_url().'general_es/contacto-transporte-de-carga-centroamerica.html" ;
-
 							} 
-
 						}
-
 					);
-
 			});';
 
-
-
 			$ins = array('telefono'=>$_POST['telefono'],'fecha'=>date('Y-m-d h:i:s'));
-
 			$this->web_model->insertar('gen_telefonos',$ins);
-
 		}
 
 		if(isset($_POST['email'])){
-
 			$mensaje = '<p>Se ha recibido un correo desde GENERAL.COM.MX</p>
-
 						<p>Correo: '.$_POST['email'].'</p>';
 
-
-
 			$this->load->library('email');
-
 			$config['mailtype'] = 'html';
-
 			$this->email->initialize($config);
-
 			$this->email->from('hola@general.com.mx');
-
 			$this->email->to('jgaytan@general.com.mx');
-
 			$this->email->subject('Se ha recibido un correo desde GENERAL.COM.MX');
-
 			$this->email->message($mensaje);
-
 			$this->email->send();
-
 			$cont['SCRIPT']='
-
-			$(window).load(function() {
-
-				swal({
-
-						title: 	"Recibido!", 
-
-						text: 	"Recibimos tu correo, en breve nos pondremos en contacto contigo!", 
-
-						type: 	"success"
-
-					},
-
-						function(isConfirm){   
-
-							if (isConfirm) {  
-
-								location.href="'.base_url().'general_es/contacto-transporte-de-carga-centroamerica.html" ;
-
-							} 
-
-						}
-
-					);
-
-			});';
-
-
+				$(window).load(function() {
+					swal({
+							title: 	"Recibido!", 
+							text: 	"Recibimos tu correo, en breve nos pondremos en contacto contigo!", 
+							type: 	"success"
+						},
+							function(isConfirm){   
+								if (isConfirm) {  
+									location.href="'.base_url().'general_es/contacto-transporte-de-carga-centroamerica.html" ;
+								} 
+							}
+						);
+				});';
 
 			$ins = array('email'=>$_POST['email'],'fecha'=>date('Y-m-d h:i:s'));
-
 			$this->web_model->insertar('gen_correos',$ins);
-
 		}
 
-
-
 		$data = array(
-
 			'DIR'=>base_url(),
-
 			'CONTENT'=>$this->parser->parse('pagina.html',$cont,true),
-
 		);
-
 		$data['MAIN_MENU']=$this->esp_model->mainMenu();
-
 		$data['SEC_MENU']=$this->esp_model->secondMenu();
-
 		$info=$this->web_model->getGeneral();
-
 		$data= array_merge($data,$info);
-
 		$data['TITULO']=$pagina[0]->metatitulo;
-
 		$data['DESCRIPCION']=$this->web_model->quitarEtiquetas($pagina[0]->descripcion);
-
 		$data['PALABRAS_CLAVE']=$this->web_model->quitarEtiquetas($pagina[0]->palabras_clave);
-
 		$this->parser->parse('plantilla.html',$data);
-
 	}
-
-
-
-
-
-
-
-
-
 }
