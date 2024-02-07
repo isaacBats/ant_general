@@ -18,7 +18,7 @@ class eng_model extends Ci_Model {
         $ligas1='';
         $lig1=$this->web_model->ligas1();
         foreach ($lig1 as $l) {
-            if($l->url_page!='contact'){
+            if($l->url_page!='contacto'){
                 $ligas1.='
                     <li>
                         <a href="'.base_url().'general_is/'.$l->url_page.'">'.$l->page.'</a>
